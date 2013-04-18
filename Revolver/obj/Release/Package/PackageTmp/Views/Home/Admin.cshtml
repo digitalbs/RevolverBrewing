@@ -1,0 +1,131 @@
+﻿@model Revolver.Models.Product
+
+@{
+    ViewBag.Title = "Revolver Admin";
+}
+
+<header>
+    <h1>@ViewBag.Title</h1>
+    <p>You are now logged into the admin section. Here you can add new products or update/delete existing products.</p>
+</header>
+
+<h3>What do you want to do?</h3>
+<nav id="adminNav" class="btn-group">
+    <button class="btn btn-primary" id="btnNewProduct"><i class="icon-plus-sign-alt"></i> Add New Product</button>
+    <button class="btn btn-primary" id="btnUpdateProduct">Update/Delete Product</button>
+</nav> 
+<section class="content" ng-controller="AdminCtrl">
+    <section id="updateProduct" class="admin-content">
+        <header>
+            <h3>Update Products</h3>
+        </header>
+        <ul id="updateAdmin" class="nav nav-tabs">
+            <li class="active"><a href="#selectProduct" data-toggle="tab">Select a Product</a></li>
+            <li class="disabled"><a href="#updateProduct" data-toggle="tab">Update {{product.Name}}</a></li>
+        </ul>
+        <section class="tab-content">
+            <article class="tab-pane fade in active" id="selectProduct">
+                <p>Select a product to update/delete:</p>
+                <select id="sltUpdateProduct">
+                    <option value="" selected>Select a product</option>
+                    <option ng-repeat="product in products" value={{product.Id}}>{{product.Name}}</option>
+                </select>
+                <button class="btn btn-primary" ng-click="getProduct()">Get</button>
+            </article>
+            <article id="updateProduct" class="tab-pane updateProduct product">
+                <header>
+                    <h3>Update {{product.Name}}</h3>
+                </header>
+                <ul>
+                    <li>
+                        <div class="item">Product ID</div>
+                        <span>{{product.Id}}</span>
+                    </li>
+                    <li>
+                        <div class="item">Name</div> 
+                        <input type="text" ng-model="product.Name" />
+                    </li> 
+                    <li>
+                        <div class="item">Description</div>
+                        <input type="text" ng-model="product.Description" />
+                    </li>
+                    <li>
+                        <div class="item">Price ($)</div> 
+                        <input type="text"  ng-model="product.Price" />
+                    </li>
+                    <li>
+                        <div class="item">Actual Cost ($)</div> 
+                        <input type="text"  ng-model="product.ActualCost" />
+                    </li>
+                    <li>
+                        <div class="item">Sales Cost ($)</div>
+                        <input type="text"  ng-model="product.SalesCost" />
+                    </li>
+                    <li>
+                        <div class="item">Category</div>
+                        <input type="text"  ng-model="product.Category" />
+                    </li>
+                    <li>
+                        <input type="button" class="btn btn-primary" value="Update" ng-click="updateProduct(product)" />
+                        <input type="button" class="btn btn-primary" value="Delete Item" ng-click="deleteProduct(product)" />
+                    </li>
+                </ul>
+            </article>
+        </section>
+    </section>
+
+    <section id="newProduct" class="admin-content">
+        <h3>Add New Product</h3>
+        <form id="product" ng-submit="createProduct()">
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <div class="editor-label">
+                    <label for="Name">Name</label>
+                </div>
+                <div class="editor-field">
+                    <input class="text-box single-line" ng-model="product.name" id="Name" name="Name" type="text" value=""> 
+                </div>
+                <div class="editor-label">
+                    <label for="Description">Description</label>
+                </div>
+                <div class="editor-field">
+                    <input class="text-box single-line" ng-model="product.description" id="Description" name="Description" type="text" value="">
+                </div>
+                <div class="editor-label">
+                    <label for="Category">Category</label>
+                </div>
+                <div class="editor-field">
+                    <input class="text-box single-line" id="Category" ng-model="product.category" name="Category" type="text" value="">
+                </div>
+                <div class="editor-label">
+                    <label for="ImageUrl">Url</label>
+                </div>
+                <div class="editor-field">
+                    <input class="text-box single-line" id="imageUrl" name="Url" ng-model="product.imageUrl" type="file" value="">
+                </div>
+                <div class="editor-label">
+                    <label for="Price">Price</label>
+                </div>
+                <div class="editor-field">
+                    <input class="text-box single-line" data-val="true" ng-model="product.price" data-val-number="The field Price must be a number." data-val-required="The Price field is required." id="Price" name="Price" type="text" value="">
+                </div>
+                <div class="editor-label">
+                    <label for="ActualCost">ActualCost</label>
+                </div>
+                <div class="editor-field">
+                    <input class="text-box single-line" data-val="true" ng-model="product.actualCost" data-val-number="The field ActualCost must be a number." data-val-required="The ActualCost field is required." id="ActualCost" name="ActualCost" type="text" value=""> 
+                </div>
+                <div class="editor-label">
+                    <label for="SalesCost">SalesCost</label>
+                </div>
+                <div class="editor-field">
+                    <input class="text-box single-line" data-val="true" ng-model="product.salesCost" data-val-number="The field SalesCost must be a number." data-val-required="The SalesCost field is required." id="SalesCost" name="SalesCost" type="text" value="">
+                </div>
+
+                <p>
+                    <input type="submit" class="btn btn-primary" value="Save">
+                </p>
+            </fieldset>
+        </form>
+    </section>
+</section>

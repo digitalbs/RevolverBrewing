@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="UsersContext-Web.config Connection String" description="UsersContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=tcp:kgxaqub0uy.database.windows.net,1433;Database=UsersContext;User ID=RevolverBrewing@kgxaqub0uy;Password=B100dandh0ney;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Workspace\\RevolverBrewing\\Revolver\\Revolver\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='UsersContext']/@connectionString" />
+  </parameter>
+  <parameter name="OrdersContext-Web.config Connection String" description="OrdersContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=tcp:kgxaqub0uy.database.windows.net,1433;Database=OrdersContext;User ID=RevolverBrewing@kgxaqub0uy;Password=B100dandh0ney;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Workspace\\RevolverBrewing\\Revolver\\Revolver\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='OrdersContext']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="DefaultConnection_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Workspace\\RevolverBrewing\\Revolver\\Revolver\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

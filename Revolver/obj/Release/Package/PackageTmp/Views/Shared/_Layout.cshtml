@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="RevolverBrewing">
+    <head>
+        <meta charset="utf-8" />
+        <title>Revolver Brewing - @ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css/font-awesome.min.css")
+        @Styles.Render("~/Content/css/font-awesome-ie7.min.css")
+        @Styles.Render("~/Content/css/bootstrap.min.css")
+        @Styles.Render("~/Content/css/bootstrap-responsive.min.css")
+        @Styles.Render("~/Content/css/common.css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <section id="wrapper" class="container-fluid">
+            <header class="row-fluid">
+                <h1 class="span12"><a href="/"><img src="~/Content/img/common/hdrRevolver.jpg" alt="Revolver Brewing" /></a></h1>
+                <nav class="row-fluid">
+                    <ul id="menu" class="span6">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        @if(User.IsInRole("Administrator"))
+                        {
+                            <li>@Html.ActionLink("Admin", "Admin", "Home")</li>
+                        }
+                    </ul>
+                    <section id="login" class="span3 pull-right">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                </nav>
+            </header>
+            <div id="body" class="container-fluid">
+                @RenderSection("featured", required: false)
+                <section class="mainContent">
+                    @RenderBody()
+                </section>
+            </div>
+            <footer>
+                <div class="content-wrapper">
+                    <div class="float-left">
+                        <p>&copy; @DateTime.Now.Year - Revolver Brewing</p>
+                    </div>
+                </div>
+            </footer>
+        </section>
+        <script type="text/javascript">
+            var baseUri = '@ViewBag.ApiUrl';
+        </script>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/Scripts/bootstrap.min.js")
+        @Scripts.Render("~/Scripts/Angular/angular.min.js")
+        @Scripts.Render("~/Scripts/Angular/angular-resource.min.js")
+        @Scripts.Render("~/Scripts/Angular/angular-sanitize.min.js")
+        @Scripts.Render("~/Scripts/Angular/angular-cookies.min.js")
+        @Scripts.Render("~/Scripts/Store/app.js")
+        @Scripts.Render("~/Scripts/Store/controllers.js")
+        @Scripts.Render("~/Scripts/Store/directives.js")
+        @Scripts.Render("~/Scripts/Store/filters.js")
+        @Scripts.Render("~/Scripts/Store/services.js")
+        @Scripts.Render("~/Scripts/Store/common.js")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
