@@ -9,3 +9,4 @@ angular.module('RevolverBrewing.directives', []).
       elm.text(version);
     };
   }]);
+

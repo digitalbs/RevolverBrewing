@@ -5,6 +5,7 @@
         <title>Revolver Brewing - @ViewBag.Title</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css/fonts.css")
         @Styles.Render("~/Content/css/font-awesome.min.css")
         @Styles.Render("~/Content/css/font-awesome-ie7.min.css")
         @Styles.Render("~/Content/css/bootstrap.min.css")
@@ -14,25 +15,22 @@
     </head>
     <body>
         <section id="wrapper" class="container-fluid">
-            <header class="row-fluid">
-                <h1 class="span12"><a href="/"><img src="~/Content/img/common/hdrRevolver.jpg" alt="Revolver Brewing" /></a></h1>
+            <header class="row-fluid" id="topNav">
+                <h1 class="span12"><a href="/"><img src="~/Content/img/common/logoRevolver.png" alt="Revolver Brewing" /></a></h1>
                 <nav class="row-fluid">
-                    <ul id="menu" class="span6">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        @if(User.IsInRole("Administrator"))
-                        {
-                            <li>@Html.ActionLink("Admin", "Admin", "Home")</li>
-                        }
-                    </ul>
-                    <section id="login" class="span3 pull-right">
+                    <section id="login">
                         @Html.Partial("_LoginPartial")
                     </section>
+                    <ul id="menu">
+                        <li>@Html.ActionLink("Our History", "About", "Home")</li>
+                        <li>@Html.ActionLink("Our Beers", "Index", "Beers")</li>
+                        <li>@Html.ActionLink("Tour Info", "Index", "TourInfo")</li>
+                        <!--<li>@Html.ActionLink("Store", "Index", "Store")</li>-->
+                        <li>@Html.ActionLink("About Us", "Contact", "Home")</li>
+                    </ul>
                 </nav>
             </header>
             <div id="body" class="container-fluid">
-                @RenderSection("featured", required: false)
                 <section class="mainContent">
                     @RenderBody()
                 </section>
@@ -40,6 +38,11 @@
             <footer>
                 <div class="content-wrapper">
                     <div class="float-left">
+                        <ul>
+                            <li><a href="https://www.facebook.com/REVOLVERBREWING" target="_blank"><i class="icon-facebook-sign"></i></a></li>
+                            <li><a href="https://twitter.com/RevolverBrewing" target="_blank"><i class="icon-twitter-sign"></i></a></li>
+                            <li><a href="mailto:rhett.keisler@revolverbrewing.com" target="_blank"><i class="icon-envelope-alt"></i></a></li>
+                        </ul>
                         <p>&copy; @DateTime.Now.Year - Revolver Brewing</p>
                     </div>
                 </div>

@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using Revolver.Models;
+using System.IO;
 
 namespace Revolver.Controllers
 {
@@ -65,8 +66,17 @@ namespace Revolver.Controllers
         // POST api/Admin
         public HttpResponseMessage PostProduct(Product product)
         {
+
             if (ModelState.IsValid)
             {
+                /*
+                if (file != null || file.ContentLength > 0)
+                {
+                    string filePath = "~/App_Data/Products/" + product.Id + "/" + file.FileName;
+                    product.ImageUrl = filePath;
+                    file.SaveAs(filePath);
+                }
+                */
                 db.Products.Add(product);
                 db.SaveChanges();
 

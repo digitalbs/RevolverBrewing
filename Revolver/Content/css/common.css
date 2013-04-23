@@ -1,31 +1,53 @@
 ﻿body {
-    background:url(../img/common/bkgdRevolver.png) repeat;
+    background:#fff8dd;
 }
 
-header img {
-    width:100%;
+h1, h2, h3 {
+    font-family:BebasNeueRegular, Arial;
+    margin:0;
+}
+
+.container-fluid {
+    padding:0;
+}
+
+header#topNav {
+    padding:1em 0 0 0;
+    background:url(../img/common/bkgdNav.png) repeat-x 0 bottom;
+}
+
+    header#topNav h1 {
+        float:left;
+        width:auto;
+    }
+
+header #menu {
+    margin:8.5em 0 0 18em;
+    text-align:center;
 }
 
 header nav {
-    background:#fff;
-    border-bottom:1px solid #333;
-}
-
-header #menu {
-    margin:1em 0;
 }
 
     header nav li {
         display:inline;
-        padding:1.5em 1em;
+        padding:1.5em 2em;
+        width:25%;
     }
 
 header nav ul a {
-    font-size:1.5em;
+    font-size:2em;
+    font-family:BebasNeueRegular, Arial;
+    color:#fff8dd;
 }
+
+    header nav ul a:hover {
+        color:#fff8dd;
+    }
 
 header #login {
     text-align:right;
+    font-family:BebasNeueRegular, Arial;
 }
 
 header #login form {
@@ -33,14 +55,37 @@ header #login form {
     padding:1.5em 1em 1.5em 0;
 }
 
+    header #login li {
+        padding:0 0.5em;
+    }
+
+    header #login a {
+        color:#404041;
+        font-size:1.2em;
+        text-decoration:underline;
+    }
+
+    header #login span {
+        font-size:1.2em;
+    }
+
 #body {
-    background:#fff;
+    border-top: 0.5em solid #231f20;
+    
+    margin-top:0.15em;
 }
 
+/** Main Content */
+
 .mainContent {
-    padding:1.5em;
-    min-height:500px;
+    padding:2.5em 2em;
+    /*background:url(../img/backgrounds/bkgd.png) no-repeat center center;
+    background-size:cover;
+    */
+    background:#efefef;
+    background:rgba(255, 255, 255, 0.3);
 }
+
 
 /** Login Form **/
 #loginForm label[for="RememberMe"] {
@@ -81,6 +126,81 @@ header #login form {
 
 footer {
     padding:1em 0;
-    color:#fff;
+    color:#fff8dd;
+    background:#231f20;
     text-align:center;
+    border-bottom:0.5em #fff8dd double;
+    border-top:0.5em #fff8dd double;
+    width:100%;
+    bottom:0;
+}
+
+    footer ul {
+        text-align:center;
+        list-style:none;
+    }    
+    
+    footer li {
+        display:inline;
+    }
+
+    footer a {
+        color:#fff8dd;
+        font-size:3em;
+        -webkit-transition:color ease-in-out .5s;
+    }
+
+        footer a:hover {
+            color:#f3f1e8;
+            text-decoration:none;
+        }
+
+    footer.fixed {
+        position:fixed;
+    }
+
+/********************
+    Media Queries
+********************/
+/* Large desktop */
+@media (min-width: 1200px) { 
+
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+    body{
+        padding: 0;
+    }
+
+    header nav ul a {
+        font-size:2em;
+    }
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    body{
+        padding: 0;
+    }
+
+    header#topNav h1 {
+        float:none;
+        text-align:center;
+    }
+
+    header#topNav nav {
+        position:absolute;
+    }
+
+    header #menu {
+        margin-top:0;
+    }
+
+
 }

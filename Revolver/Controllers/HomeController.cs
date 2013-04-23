@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Revolver.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,9 +10,10 @@ namespace Revolver.Controllers
 {
     public class HomeController : Controller
     {
+        private OrdersContext db = new OrdersContext();
         public ActionResult Index()
         {
-            ViewBag.Title = "Welcome to the Revolver Brewing site.";
+            ViewBag.Title = "Upcoming Tour Events - $10 Admission";
 
             return View();
         }
@@ -38,20 +40,6 @@ namespace Revolver.Controllers
 
             return View();
         }
-
-        [HttpPost]
-        public ActionResult Admin(HttpPostedFileBase file)
-        {
-            //check if user selected file
-            if (file != null && file.ContentLength > 0)
-            {
-                //get file name
-                var filename = Path.GetFileName(file.FileName);
-                //store file in folder
-                var path = Path.Combine(Server.MapPath("~/App_Data/Products"), filename);
-                file.SaveAs(path);
-            }
-            return View("Admin");
-        }
+        
     }
 }

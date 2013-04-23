@@ -47,7 +47,7 @@
                     </li> 
                     <li>
                         <div class="item">Description</div>
-                        <input type="text" ng-model="product.Description" />
+                        <textarea type="text" ng-model="product.Description" ></textarea>
                     </li>
                     <li>
                         <div class="item">Price ($)</div> 
@@ -76,7 +76,7 @@
 
     <section id="newProduct" class="admin-content">
         <h3>Add New Product</h3>
-        <form id="product" ng-submit="createProduct()">
+        <form id="product" ng-submit="createProduct()" method="post">
             @Html.ValidationSummary(true)
             <fieldset>
                 <div class="editor-label">
@@ -89,7 +89,8 @@
                     <label for="Description">Description</label>
                 </div>
                 <div class="editor-field">
-                    <input class="text-box single-line" ng-model="product.description" id="Description" name="Description" type="text" value="">
+                    <textarea ng-model="product.description" id="Description" name="Description" ></textarea>
+                    <!--<input class="text-box single-line" ng-model="product.description" id="Description" name="Description" type="text" value="">-->
                 </div>
                 <div class="editor-label">
                     <label for="Category">Category</label>
@@ -98,10 +99,10 @@
                     <input class="text-box single-line" id="Category" ng-model="product.category" name="Category" type="text" value="">
                 </div>
                 <div class="editor-label">
-                    <label for="ImageUrl">Url</label>
+                    <label for="ImageUrl">Image URL</label>
                 </div>
                 <div class="editor-field">
-                    <input class="text-box single-line" id="imageUrl" name="Url" ng-model="product.imageUrl" type="file" value="">
+                    <input class="text-box single-line" id="imageUrl" name="file" ng-model="product.imageUrl" type="file" value=""> 
                 </div>
                 <div class="editor-label">
                     <label for="Price">Price</label>

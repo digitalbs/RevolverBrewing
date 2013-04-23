@@ -15,12 +15,31 @@ $(function () {
             return false;
 
         $(this).tab('show');
-        
+    });
 
-    })
+    Revolver.footerPosition();
+
+    $(window).resize(Revolver.footerPosition);
+
 });
 
 Revolver.showAdminContainer = function (name) {
     $('.admin-content').hide();
     $('#' + name).show()
 };
+
+Revolver.calculateBodyHeight = function () {
+    return $('body').height();
+}
+
+Revolver.footerPosition = function () {
+    var windowHeight = $(window).height() - 80;
+
+    console.log(windowHeight + ', ' + Revolver.calculateBodyHeight());
+
+    if (windowHeight > Revolver.calculateBodyHeight()) {
+        $('footer').addClass('fixed');
+    } else {
+        $('footer').removeClass('fixed');
+    }
+}

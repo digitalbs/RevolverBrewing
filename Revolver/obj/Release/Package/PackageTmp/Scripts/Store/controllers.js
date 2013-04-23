@@ -2,7 +2,6 @@
 
 /* Controllers */
 
-
 function AdminCtrl($scope, $http) {
     $scope.product = {};
     //get products
@@ -50,8 +49,8 @@ function AdminCtrl($scope, $http) {
             });
         });
     }
-}
-AdminCtrl.$inject = ['$scope', '$http'];
+};
+//AdminCtrl.$inject = ['$scope', '$http'];
 
 
 function MyCtrl2() {
